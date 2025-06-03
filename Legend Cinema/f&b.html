@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Beverage - Legend Cinema Clone</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #222 !important;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar .nav-link {
+            color: #fff !important;
+            margin-right: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar .nav-link:hover, .navbar .nav-link.active {
+            color: #f0ad4e !important;
+        }
+        .navbar .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .page-header {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+        }
+         .page-header .breadcrumb {
+            background-color: transparent;
+            padding-left: 0;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .page-header .breadcrumb-item a {
+            color: #f0ad4e;
+        }
+        .page-header .breadcrumb-item.active {
+            color: #ccc;
+        }
+
+        .fnb-category-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 3px solid #f0ad4e;
+            padding-bottom: 10px;
+            display: inline-block; /* To make border only as wide as text */
+        }
+        .text-center .fnb-category-title { /* Center the title block */
+             display: block;
+        }
+
+
+        .fnb-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Softer shadow */
+            margin-bottom: 30px;
+            overflow: hidden;
+            text-align: center; /* Center content within the card */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .fnb-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .fnb-card .card-img-top {
+            width: 100%;
+            height: 200px; /* Fixed height for F&B images */
+            object-fit: contain; /* Use 'contain' to show whole item, or 'cover' if preferred */
+            padding: 10px; /* Add some padding around the image if using contain */
+            background-color: #fdfdfd; /* Light background for image area */
+        }
+        .fnb-card .card-body {
+            padding: 20px;
+        }
+        .fnb-card .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #d35400; /* A warm color for F&B titles */
+            margin-bottom: 10px;
+        }
+        .fnb-card .card-text { /* For description or ingredients */
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            min-height: 40px; /* Ensure some space for description */
+        }
+        .fnb-card .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #27ae60; /* Green for price */
+            margin-bottom: 15px;
+        }
+        .fnb-card .btn-outline-success {
+            font-weight: bold;
+            border-color: #27ae60;
+            color: #27ae60;
+        }
+        .fnb-card .btn-outline-success:hover {
+            background-color: #27ae60;
+            color: #fff;
+        }
+
+
+        .footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        .footer a {
+            color: #f0ad4e;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .footer p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <strong>LEGEND CINEMA</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="movie.html">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cinema.html">Cinemas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotion.html">Promotions</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">F&B <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Our Delicious Treats</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Food & Beverage</li>
+              </ol>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="text-center">
+            <h2 class="fnb-category-title">Popcorn Delights</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/300x200/f1c40f/000?text=Classic+Popcorn" class="card-img-top" alt="Classic Popcorn">
+                    <div class="card-body">
+                        <h5 class="card-title">Classic Salted Popcorn</h5>
+                        <p class="card-text">Freshly popped, perfectly salted. The ultimate movie snack!</p>
+                        <p class="price">$5.00 (M) / $7.00 (L)</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/300x200/e67e22/fff?text=Caramel+Popcorn" class="card-img-top" alt="Caramel Popcorn">
+                    <div class="card-body">
+                        <h5 class="card-title">Sweet Caramel Popcorn</h5>
+                        <p class="card-text">Indulge in our sweet and crunchy caramel coated popcorn.</p>
+                        <p class="price">$6.00 (M) / $8.50 (L)</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/300x200/c0392b/fff?text=Cheese+Popcorn" class="card-img-top" alt="Cheese Popcorn">
+                    <div class="card-body">
+                        <h5 class="card-title">Cheesy Cheddar Popcorn</h5>
+                        <p class="card-text">A savory delight with rich cheddar cheese flavor.</p>
+                        <p class="price">$6.00 (M) / $8.50 (L)</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/300x200/7f8c8d/fff?text=Mixed+Popcorn" class="card-img-top" alt="Mixed Popcorn">
+                    <div class="card-body">
+                        <h5 class="card-title">Mixed Popcorn Bucket</h5>
+                        <p class="card-text">Can't decide? Get a mix of salted, caramel, and cheese!</p>
+                        <p class="price">$9.00 (L)</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2 class="fnb-category-title">Refreshing Drinks</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/300x200/3498db/fff?text=Soft+Drink" class="card-img-top" alt="Soft Drink">
+                    <div class="card-body">
+                        <h5 class="card-title">Fountain Soft Drinks</h5>
+                        <p class="card-text">Choose from Coke, Pepsi, Sprite, Fanta, and more.</p>
+                        <p class="price">$3.00 (R) / $4.50 (L)</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/300x200/1abc9c/fff?text=Iced+Tea" class="card-img-top" alt="Iced Tea">
+                    <div class="card-body">
+                        <h5 class="card-title">Iced Lemon Tea</h5>
+                        <p class="card-text">Cool and refreshing, perfect for a hot day.</p>
+                        <p class="price">$3.50</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/300x200/2ecc71/fff?text=Bottled+Water" class="card-img-top" alt="Bottled Water">
+                    <div class="card-body">
+                        <h5 class="card-title">Mineral Water</h5>
+                        <p class="card-text">Stay hydrated with our pure mineral water.</p>
+                        <p class="price">$2.00</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/300x200/9b59b6/fff?text=Juice" class="card-img-top" alt="Juice">
+                    <div class="card-body">
+                        <h5 class="card-title">Fruit Juices</h5>
+                        <p class="card-text">Orange, Apple, Mango - freshly packed.</p>
+                        <p class="price">$4.00</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h2 class="fnb-category-title">Value Combos</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4"> <div class="fnb-card">
+                    <img src="https://placehold.co/400x250/e74c3c/fff?text=Solo+Combo" class="card-img-top" alt="Solo Combo">
+                    <div class="card-body">
+                        <h5 class="card-title">Solo Combo</h5>
+                        <p class="card-text">1 Regular Popcorn + 1 Regular Soft Drink.</p>
+                        <p class="price">$7.50</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/400x250/8e44ad/fff?text=Couple+Combo" class="card-img-top" alt="Couple Combo">
+                    <div class="card-body">
+                        <h5 class="card-title">Couple Combo</h5>
+                        <p class="card-text">1 Large Popcorn (choice of flavor) + 2 Regular Soft Drinks.</p>
+                        <p class="price">$12.00</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="fnb-card">
+                    <img src="https://placehold.co/400x250/2c3e50/fff?text=Family+Combo" class="card-img-top" alt="Family Combo">
+                    <div class="card-body">
+                        <h5 class="card-title">Family Combo</h5>
+                        <p class="card-text">2 Large Popcorns (choice of flavors) + 4 Regular Soft Drinks.</p>
+                        <p class="price">$20.00</p>
+                        <button class="btn btn-outline-success">Add to Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p>&copy; <script>document.write(new Date().getFullYear());</script> Legend Cinema Clone. For educational purposes only.</p>
+            <p>
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms of Service</a> |
+                <a href="contact.html">Contact Us</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        console.log("F&B Page JavaScript loaded.");
+    </script>
+</body>
+</html>
